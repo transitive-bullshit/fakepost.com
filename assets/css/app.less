@@ -1,0 +1,68 @@
+/*! app.less
+ * 
+ * NOTE: the css version of this file is auto-generated, so only edit the original 
+ * less version if you don't want your changes to be overwritten.
+ */
+
+/* **************************************************************************
+                                   GENERAL
+   ************************************************************************** */
+
+@import "elements.less";
+
+body {
+  background: #f5f4f4;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: #648DAE;
+
+  &:hover, &:active {
+    text-decoration: none;
+  }
+
+  &:active {
+    color: #1B5F97;
+  }
+}
+
+.hidden       { display: none !important; }
+.inline       { display: inline !important; }
+.mobile-only  { display: none; }
+.left         { float: left; }
+.right        { float: right; }
+
+.flash-container {
+  position: fixed;
+  width: 640px;
+  margin: 8px 0 0 -320px;
+  left: 50%;
+  top: 0;
+  z-index: 1000;
+  pointer-events: none;
+
+  .flash-alert {
+    position: absolute;
+    width: 100%;
+    padding: 15px;
+    top:  0;
+    left: 0;
+    color: #fff;
+    .rounded(4px);
+
+    .flash-close {
+      display: block;
+      position: relative;
+      top: 2px;
+      float: right;
+      color: #fff;
+      pointer-events: auto;
+    }
+  }
+
+  .alert-success { background: #7ec646; }
+  .alert-error   { background: #c4392d; }
+}
+

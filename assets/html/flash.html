@@ -1,0 +1,15 @@
+<div class="container flash-container">
+  <!-- Subscribe to success flash messages -->
+  <div flash-alert="success" active-class="in" class="flash-alert fade clearfix">
+    <strong class="alert-heading">Success</strong>
+    <span class="alert-message" ng-bind="flash.message"></span>
+    <a href class="flash-close unselectable glyphicon glyphicon-remove" ng-click="hide()"></a>
+  </div>
+
+  <!-- Subscribe to error flash messages -->
+  <div flash-alert="error" active-class="in" class="flash-alert fade clearfix">
+    <strong class="alert-heading">Error</strong>
+    <span class="alert-message" ng-bind="flash.message"></span>
+    <a href class="flash-close unselectable glyphicon glyphicon-remove" ng-click="hide()"></a>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+*.swp
+*.swo
+*.swn
+.tmp
+.env
+.bundle
+.DS_Store
+dist/
+node_modules/
+assets/third-party/

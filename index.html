@@ -1,0 +1,86 @@
+<!doctype html>
+<html xmlns:ng="http://angularjs.org" id="ng-app" lang="en" ng-app="fakepost">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>@fakepost</title>
+
+    <meta name="author"    content="Sesh">
+    <meta name="copyright" content="Sesh 2015">
+    <meta name="robots"    content="index,follow">
+
+    <meta name="viewport"  content="user-scalable=no, width=device-width, minimum-scale=1.0, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable"       content="yes">
+    <meta name="application-name"             content="Fake Post">
+
+    <meta property="og:title"     content="Fake Post"/>
+    <meta property="og:site_name" content="Fake Post"/>
+    <meta property="og:type"      content="website"/>
+
+    <meta itemprop="name"         content="Fake Post"/>
+
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+
+    <!-- build:css /build/css/app.min.css -->
+    <link rel="stylesheet" href="/assets/third-party/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/third-party/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/assets/third-party/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/third-party/angular-loading-bar/build/loading-bar.min.css">
+
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <!-- endbuild -->
+
+    {{#if isMobile}}
+      <!-- build:css /build/css/app.mobile.min.css -->
+      <link rel="stylesheet" href="/assets/css/app-mobile.css">
+      <!-- endbuild -->
+    {{/if}}
+  </head>
+
+  <body ng-controller="RootCtrl">
+    <div ng-include="'/assets/html/flash.html'"></div>
+
+    <!-- angular view content injected here -->
+    <div id='content' ui-view></div>
+
+    <div id="scripts">
+      {{#if isMobile}}
+        <script type='text/javascript'> IS_MOBILE = true </script>
+      {{else}}
+        <script type='text/javascript'> IS_MOBILE = false </script>
+      {{/if}}
+
+      <!-- build:js /build/js/app.min.js -->
+      <!-- basic third-party dependencies -->
+      <script src="/assets/third-party/jquery/dist/jquery.min.js"></script>
+      <script src="/assets/third-party/underscore/underscore.js"></script>
+      <script src="/assets/third-party/bootstrap/dist/js/bootstrap.min.js"></script>
+
+      <!-- angular dependencies -->
+      <script src="/assets/third-party/angular/angular.min.js"></script>
+      <script src="/assets/third-party/angular-ui-router/release/angular-ui-router.min.js"></script>
+      <script src="/assets/third-party/angular-animate/angular-animate.min.js"></script>
+      <script src="/assets/third-party/angular-bootstrap/ui-bootstrap.min.js"></script>
+      <script src="/assets/third-party/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+      <script src="/assets/third-party/angular-touch/angular-touch.min.js"></script>
+      <script src="/assets/third-party/angular-loading-bar/build/loading-bar.min.js"></script>
+      <script src="/assets/js/lib/angular-flash.js"></script>
+
+      <!-- angular app -->
+      <script src="/assets/js/app.js"></script>
+
+      <!-- angular controllers for main webapp -->
+      <script src="/assets/js/controllers/RootCtrl.js"></script>
+      <script src="/assets/js/controllers/HomeCtrl.js"></script>
+      <script src="/assets/js/controllers/TwitterCtrl.js"></script>
+      <script src="/assets/js/controllers/TwitterHomeCtrl.js"></script>
+      <script src="/assets/js/controllers/TwitterCreateTweetCtrl.js"></script>
+
+      <!-- inject:partials -->
+      <!-- endinject -->
+      <!-- endbuild -->
+    </div>
+  </body>
+</html>
