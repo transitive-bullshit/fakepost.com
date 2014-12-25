@@ -1,0 +1,12 @@
+/*! fonts.less
+ * 
+ * NOTE: the css version of this file is auto-generated, so only edit the original 
+ * less version if you don't want your changes to be overwritten.
+ */
+@font-face {
+  font-family: 'rosettaicons';
+  src: url('/assets/fonts/rosetta-icons-Regular.eot');
+  src: url('/assets/fonts/rosetta-icons-Regular.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/rosetta-icons-Regular.woff') format('woff'), url('/assets/fonts/rosetta-icons-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}

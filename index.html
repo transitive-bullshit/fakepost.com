@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="/assets/third-party/angular-loading-bar/build/loading-bar.min.css">
 
     <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="stylesheet" href="/assets/css/fonts.css">
     <!-- endbuild -->
 
     {{#if isMobile}}
@@ -43,7 +44,7 @@
     <div ng-include="'/assets/html/flash.html'"></div>
 
     <!-- angular view content injected here -->
-    <div id='content' ui-view></div>
+    <div id='content' class="fit" ui-view></div>
 
     <div id="scripts">
       {{#if isMobile}}
