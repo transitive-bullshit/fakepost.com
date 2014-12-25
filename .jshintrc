@@ -16,6 +16,7 @@
     "_", 
     "ga", 
     "angular",
-    "IS_MOBILE"
+    "IS_MOBILE",
+    "faker"
   ]
 }

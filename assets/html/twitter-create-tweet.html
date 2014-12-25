@@ -19,17 +19,17 @@
       </div>
 
       <a class="account-group">
-        <img class="avatar" src="https://pbs.twimg.com/profile_images/547714403684986880/apxt8hY7_bigger.png" />
-        <strong class="fullname">M.G. Siegler<span class="Icon Icon--small Icon--verified"></span><span>&rlm;</span></strong>
+        <img class="avatar" ng-src="{{tweet.user.avatar}}" />
+        <strong class="fullname">{{tweet.user.fullname}}<span ng-if="tweet.user.verified" class="Icon Icon--small Icon--verified"></span><span>&rlm;</span></strong>
         <span class="username">
           <s>@</s>
-          <b>mgsiegler</b>
+          <b>{{tweet.user.username}}</b>
         </span>
       </a>
     </div>
   </div>
 
-  <p class="tweet-text">This just in: Russell Wilson is good.</p>
+  <p class="tweet-text">{{tweet.status}}</p>
 
   <div class="stream-item-footer">
     <div role="group" class="actions u-cf">
@@ -69,23 +69,23 @@
           <li class="stat-count">
             <a href role="button">
               Retweets
-              <strong>5</strong>
+              <strong>{{tweet.stats.retweets}}</strong>
             </a>
           </li>
           <li class="stat-count">
             <a href role="button">
               Favorites
-              <strong>7</strong>
+              <strong>{{tweet.stats.favorites}}</strong>
             </a>
           </li>
           <li class="avatar-row">
-            <a href ng-repeat="avatar in avatars | limitTo:7"><img class="avatar size24" ng-src="{{avatar}}" /></a>
+            <a href ng-repeat="avatar in tweet.stats.favoritedBy | limitTo:tweet.stats.favorites"><img class="avatar size24" ng-src="{{avatar}}" /></a>
           </li>
         </ul>
       </div>
 
       <div class="client-and-actions">
-        <span class="metadata">5:03 AM - 25 Dec 2014</span>
+        <span class="metadata">{{tweet.timestamp}}</span>
       </div>
     </div>
   </div>
