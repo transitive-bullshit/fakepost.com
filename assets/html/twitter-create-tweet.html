@@ -20,11 +20,7 @@
 
       <a class="account-group">
         <img class="avatar" src="https://pbs.twimg.com/profile_images/547714403684986880/apxt8hY7_bigger.png" />
-        <strong class="fullname">
-          M.G. Siegler
-          <span class="Icon Icon--small Icon--verified"></span>
-          <span>&rlm;</span>
-        </strong>
+        <strong class="fullname">M.G. Siegler<span class="Icon Icon--small Icon--verified"></span><span>&rlm;</span></strong>
         <span class="username">
           <s>@</s>
           <b>mgsiegler</b>
@@ -33,9 +29,7 @@
     </div>
   </div>
 
-  <p class="tweet-text">
-    This just in: Russell Wilson is good.
-  </p>
+  <p class="tweet-text">This just in: Russell Wilson is good.</p>
 
   <div class="stream-item-footer">
     <div role="group" class="actions u-cf">
@@ -85,17 +79,13 @@
             </a>
           </li>
           <li class="avatar-row">
-            <a href><img class="avatar size24" src="https://pbs.twimg.com/profile_images/3439681448/ca246efed6feada550f99a210391e7fc_normal.jpeg" /></a>
-            <a href><img class="avatar size24" src="https://pbs.twimg.com/profile_images/3439681448/ca246efed6feada550f99a210391e7fc_normal.jpeg" /></a>
-            <a href><img class="avatar size24" src="https://pbs.twimg.com/profile_images/3439681448/ca246efed6feada550f99a210391e7fc_normal.jpeg" /></a>
-            <a href><img class="avatar size24" src="https://pbs.twimg.com/profile_images/3439681448/ca246efed6feada550f99a210391e7fc_normal.jpeg" /></a>
-            <a href><img class="avatar size24" src="https://pbs.twimg.com/profile_images/3439681448/ca246efed6feada550f99a210391e7fc_normal.jpeg" /></a>
-            <a href><img class="avatar size24" src="https://pbs.twimg.com/profile_images/3439681448/ca246efed6feada550f99a210391e7fc_normal.jpeg" /></a>
-            <a href><img class="avatar size24" src="https://pbs.twimg.com/profile_images/3439681448/ca246efed6feada550f99a210391e7fc_normal.jpeg" /></a>
-            <a href><img class="avatar size24" src="https://pbs.twimg.com/profile_images/3439681448/ca246efed6feada550f99a210391e7fc_normal.jpeg" /></a>
-            <a href><img class="avatar size24" src="https://pbs.twimg.com/profile_images/3439681448/ca246efed6feada550f99a210391e7fc_normal.jpeg" /></a>
+            <a href ng-repeat="avatar in avatars | limitTo:7"><img class="avatar size24" ng-src="{{avatar}}" /></a>
           </li>
         </ul>
+      </div>
+
+      <div class="client-and-actions">
+        <span class="metadata">5:03 AM - 25 Dec 2014</span>
       </div>
     </div>
   </div>

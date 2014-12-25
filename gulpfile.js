@@ -87,7 +87,8 @@ gulp.task('html', [ 'minify' ], function () {
 gulp.task('fonts', function () {
   return gulp.src([
     'assets/third-party/bootstrap/dist/fonts/*',
-    'assets/third-party/font-awesome/fonts/*'
+    'assets/third-party/font-awesome/fonts/*',
+    'assets/fonts/*'
   ]).pipe($.filter('**/*.{eot,svg,ttf,woff}'))
     .pipe($.flatten())
     .pipe(gulp.dest('dist/build/fonts'))

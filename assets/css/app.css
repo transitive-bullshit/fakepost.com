@@ -22,6 +22,11 @@
   -ms-user-select: none;
   user-select: none;
 }
+html {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
 body {
   background: #f5f4f4;
   padding: 0;
@@ -101,7 +106,7 @@ a:active {
   width: 560px;
   max-width: 100%;
   background: #fff;
-  padding: 30px 40px;
+  padding: 30px 40px 27px;
   border-bottom: 0;
   min-height: 51px;
   margin: 0 auto;
@@ -177,10 +182,17 @@ a:active {
   border: 0;
   overflow: visible;
   text-transform: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 .section-twitter .tweet button:hover,
 .section-twitter .tweet button:focus {
   color: #78CAF0 !important;
+  outline: none;
+}
+.section-twitter .tweet .btn {
+  font-size: 14px;
 }
 .section-twitter .tweet ol,
 .section-twitter .tweet ul {
@@ -341,9 +353,11 @@ a:active {
   border-left: 0;
 }
 .section-twitter .tweet .permalink-footer .tweet-details-fixer .tweet-stats-container .stats .stat-count a {
+  display: block;
   padding-right: 0;
 }
 .section-twitter .tweet .permalink-footer .tweet-details-fixer .tweet-stats-container .stats .stat-count strong {
+  display: block;
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
@@ -365,4 +379,14 @@ a:active {
 .section-twitter .tweet .permalink-footer .tweet-details-fixer .tweet-stats-container .stats .avatar-row .avatar {
   float: left;
   margin-right: 5px;
+}
+.section-twitter .tweet .permalink-footer .tweet-details-fixer .client-and-actions {
+  clear: both;
+  margin-top: 10px;
+}
+.section-twitter .tweet .permalink-footer .tweet-details-fixer .client-and-actions .metadata {
+  font-size: 13px;
+  color: #8899a6;
+  overflow: hidden;
+  line-height: 24px;
 }
