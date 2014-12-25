@@ -86,3 +86,249 @@ a:active {
 .flash-container .alert-error {
   background: #c4392d;
 }
+.section-twitter .tweet {
+  width: 560px;
+  max-width: 100%;
+  color: #292f33;
+  font-size: 14px;
+  line-height: 18px;
+}
+.section-twitter .tweet .Icon {
+  background: transparent;
+  display: inline-block;
+  font-style: normal;
+  vertical-align: baseline;
+}
+.section-twitter .tweet .Icon:before {
+  display: block;
+  font-family: "rosettaicons";
+  font-weight: normal;
+  font-style: normal;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+}
+.section-twitter .tweet .Icon--medium {
+  font-size: 18px;
+  line-height: 18px;
+}
+.section-twitter .tweet .Icon--small {
+  font-size: 16px;
+  line-height: 15px;
+}
+.section-twitter .tweet .Icon--verified {
+  color: #88c9f9;
+}
+.section-twitter .tweet .Icon--reply {
+  content: "\f151";
+}
+.section-twitter .tweet .Icon--retweet {
+  content: "\f152";
+}
+.section-twitter .tweet .Icon--favorite {
+  content: "\f147";
+}
+.section-twitter .tweet .Icon--dots {
+  content: "\f150";
+}
+.section-twitter .tweet .u-cf:before,
+.section-twitter .tweet .u-cf:after {
+  content: " ";
+  display: table;
+}
+.section-twitter .tweet .u-cf:after {
+  clear: both;
+}
+.section-twitter .tweet .u-hiddenVisually {
+  position: absolute!important;
+  overflow: hidden!important;
+  width: 1px!important;
+  height: 1px!important;
+  padding: 0!important;
+  border: 0!important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+}
+.section-twitter .tweet button {
+  border: 0;
+  overflow: visible;
+  text-transform: none;
+}
+.section-twitter .tweet button:hover,
+.section-twitter .tweet button:focus {
+  color: #78CAF0 !important;
+}
+.section-twitter .tweet ol,
+.section-twitter .tweet ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+.section-twitter .tweet img {
+  border: 0;
+}
+.section-twitter .tweet .avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 5px;
+  -moz-force-broken-image-icon: 1;
+}
+.section-twitter .tweet .size24 {
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+}
+.section-twitter .tweet .content {
+  margin-left: 58px;
+}
+.section-twitter .tweet .content .permalink-header {
+  height: 48px;
+  margin-bottom: 15px;
+}
+.section-twitter .tweet .content .permalink-header .follow-bar {
+  float: right;
+}
+.section-twitter .tweet .content .permalink-header .follow-bar .user-actions {
+  position: relative;
+}
+.section-twitter .tweet .content .permalink-header .follow-bar .user-actions .dropdown {
+  position: relative;
+  display: inline-block;
+}
+.section-twitter .tweet .content .permalink-header .follow-bar .user-actions .dropdown .user-dropdown {
+  position: relative;
+  height: 35px;
+  padding: 0 0 0 5px;
+  color: #66757f;
+  display: inline-block;
+  font-weight: bold;
+}
+.section-twitter .tweet .content .permalink-header .follow-bar .user-actions .dropdown .user-dropdown .user-dropdown-icon {
+  margin: 0 8px 0 3px;
+}
+.section-twitter .tweet .content .permalink-header .follow-bar .user-actions .user-actions-follow-button {
+  padding: 4px 12px 9px 12px;
+  vertical-align: top;
+  color: #fff;
+  background-color: #55acee;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000000, endColorstr=#0C000000)";
+  border: 1px solid #3b88c3;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+.section-twitter .tweet .content .permalink-header .follow-bar .user-actions .follow-button .button-text {
+  display: block;
+  color: #fff;
+  padding: 0;
+  min-width: 73px;
+  text-align: center;
+  padding-top: 5px;
+}
+.section-twitter .tweet .content .permalink-header .follow-bar .account-group .fullname {
+  display: block;
+  padding-top: 2px;
+  margin-top: 3px;
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: bold;
+  color: #292f33;
+}
+.section-twitter .tweet .content .permalink-header .follow-bar .account-group .Icon--verified {
+  position: relative;
+  margin-left: 3px;
+}
+.section-twitter .tweet .content .permalink-header .follow-bar .account-group .username {
+  font-size: 14px;
+  direction: ltr;
+  unicode-bidi: embed;
+  color: #8899a6;
+}
+.section-twitter .tweet .content .permalink-header .follow-bar .account-group .username s {
+  color: #b1bbc3;
+}
+.section-twitter .tweet .content .permalink-header .follow-bar .account-group .username b {
+  font-weight: normal;
+}
+.section-twitter .tweet .content .tweet-text {
+  white-space: pre-wrap;
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 300;
+  letter-spacing: .01em;
+  word-wrap: break-word;
+  margin: 0;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+.section-twitter .tweet .content .stream-item-footer {
+  font-size: 12px;
+  padding-top: 1px;
+}
+.section-twitter .tweet .content .stream-item-footer .actions {
+  margin-top: 5px;
+  margin-bottom: 2px;
+}
+.section-twitter .tweet .content .stream-item-footer .actions .action {
+  float: left;
+  margin-right: 31px;
+}
+.section-twitter .tweet .content .stream-item-footer .actions .action-button {
+  color: #ccd6dd;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1;
+  position: relative;
+  top: 4px;
+  padding: 0 2px;
+}
+.section-twitter .tweet .content .permalink-footer .tweet-details-fixer .tweet-stats-container .stats {
+  overflow: hidden;
+  margin-top: 10px;
+  border-bottom: 1px solid #e1e8ed;
+  border-top: 1px solid #e1e8ed;
+}
+.section-twitter .tweet .content .permalink-footer .tweet-details-fixer .tweet-stats-container .stats a {
+  float: left;
+  padding: 7px 28px 0 0;
+  color: #8899a6;
+  font-size: 10px;
+  line-height: 16px;
+  text-transform: uppercase;
+  padding-top: 4px;
+  width: auto;
+}
+.section-twitter .tweet .content .permalink-footer .tweet-details-fixer .tweet-stats-container .stats .stat-count {
+  margin-right: 10px;
+  overflow: hidden;
+  min-width: 72px;
+}
+.section-twitter .tweet .content .permalink-footer .tweet-details-fixer .tweet-stats-container .stats .stat-count:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+.section-twitter .tweet .content .permalink-footer .tweet-details-fixer .tweet-stats-container .stats .stat-count a {
+  padding-right: 0;
+}
+.section-twitter .tweet .content .permalink-footer .tweet-details-fixer .tweet-stats-container .stats .stat-count strong {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #78CAF0;
+}
+.section-twitter .tweet .content .permalink-footer .tweet-details-fixer .tweet-stats-container .stats li {
+  display: block;
+  float: left;
+  overflow: hidden;
+}
+.section-twitter .tweet .content .permalink-footer .tweet-details-fixer .tweet-stats-container .stats .avatar-row a {
+  padding: 11px 0;
+  width: auto;
+}
+.section-twitter .tweet .content .permalink-footer .tweet-details-fixer .tweet-stats-container .stats .avatar-row a:first-child {
+  padding-left: 12px;
+  border-left: 1px solid #e1e8ed;
+}
+.section-twitter .tweet .content .permalink-footer .tweet-details-fixer .tweet-stats-container .stats .avatar-row .avatar {
+  float: left;
+  margin-right: 5px;
+}

@@ -25,7 +25,8 @@
     "jshint-stylish": "^0.2.0",
     "mobile-detect": "^0.4.3",
     "mongoose": "^3.8.21",
-    "request": "^2.51.0"
+    "request": "^2.51.0",
+    "twitter": "^1.0.1"
   },
   "engines": {
     "node": "0.10.x"
