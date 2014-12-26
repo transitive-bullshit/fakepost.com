@@ -6,7 +6,7 @@
         <div class="user-actions">
           <div class="dropdown">
             <button type="button btn" title="More user actions">
-              <span class="user-dropdown-icon Icon Icon--medium Icon--cog"></span>
+              <img class="user-dropdown-icon Icon Icon--cog" src="/assets/img/twitter/icon.cog.png" />
             </button>
           </div>
 
@@ -17,13 +17,13 @@
       </div>
 
       <a class="account-group editable" ng-click="toggleEditing('username')">
-        <img class="avatar" ng-src="{{tweet.user.avatar}}" />
+        <img class="avatar" ng-src="{{tweet.avatar}}" />
         <div class="loading-user" ng-if="editing.user"><span class="fa fa-spin fa-refresh"></span></div>
-        <strong class="fullname">{{tweet.user.fullname}}<span ng-if="tweet.user.verified" class="Icon Icon--small Icon--verified"></span><span>&rlm;</span></strong>
+        <strong class="fullname">{{tweet.fullname}}<img ng-if="tweet.verified" class="Icon Icon--verified" src="/assets/img/twitter/icon.verified.png" /><span>&rlm;</span></strong>
         <span class="username">
           <s>@</s>
-          <b ng-if="!editing.username">{{tweet.user.username}}</b>
-          <input ng-if="editing.username" class="username editing-username" type="text" size="14" ng-blur="toggleEditing('username')" ng-keyup="handleEditingKey($event, 'username')" ng-model="tweet.user.username">
+          <b ng-if="!editing.username">{{tweet.username}}</b>
+          <input ng-if="editing.username" class="username editing-username" type="text" size="14" ng-blur="toggleEditing('username')" ng-keyup="handleEditingKey($event, 'username')" ng-model="tweet.username">
         </span>
       </a>
     </div>
@@ -33,32 +33,7 @@
   <textarea ng-if="editing.status" class="tweet-text editing-status" maxlength="140" rows="2" ng-blur="toggleEditing('status')" ng-keyup="handleEditingKey($event)" ng-model="tweet.status"></textarea>
 
   <div class="stream-item-footer">
-    <div role="group" class="actions u-cf">
-      <div class="action">
-        <button class="action-button">
-          <span class="Icon Icon--reply"></span>
-          <span class="u-hiddenVisually">Reply</span>
-        </button>
-      </div>
-      <div class="action">
-        <button class="action-button">
-          <span class="Icon Icon--retweet"></span>
-          <span class="u-hiddenVisually">Retweet</span>
-        </button>
-      </div>
-      <div class="action">
-        <button class="action-button">
-          <span class="Icon Icon--favorite"></span>
-          <span class="u-hiddenVisually">Favorite</span>
-        </button>
-      </div>
-      <div class="action">
-        <button class="action-button">
-          <span class="Icon Icon--dots"></span>
-          <span class="u-hiddenVisually">More</span>
-        </button>
-      </div>
-    </div>
+    <img class="actions" src="/assets/img/twitter/icon.actions.png" />
   </div>
 
   <div class="permalink-footer">
@@ -70,19 +45,19 @@
           <li class="stat-count">
             <span class="link editable" ng-click="toggleEditing('retweets')">
               Retweets
-              <strong ng-if="!editing.retweets" class="count">{{tweet.stats.retweets}}</strong>
-              <input ng-if="editing.retweets" class="count editing-retweets" type="text" size="3" ng-blur="toggleEditing('retweets')" ng-keyup="handleEditingKey($event)" ng-model="tweet.stats.retweets">
+              <strong ng-if="!editing.retweets" class="count">{{tweet.retweets}}</strong>
+              <input ng-if="editing.retweets" class="count editing-retweets" type="text" size="3" ng-blur="toggleEditing('retweets')" ng-keyup="handleEditingKey($event)" ng-model="tweet.retweets">
             </span>
           </li>
           <li class="stat-count">
             <span class="link editable" ng-click="toggleEditing('favorites')">
               Favorites
-              <strong ng-if="!editing.favorites" class="count">{{tweet.stats.favorites}}</strong>
-              <input ng-if="editing.favorites" class="count editing-favorites" type="text" size="3" ng-blur="toggleEditing('favorites')" ng-keyup="handleEditingKey($event)" ng-model="tweet.stats.favorites">
+              <strong ng-if="!editing.favorites" class="count">{{tweet.favorites}}</strong>
+              <input ng-if="editing.favorites" class="count editing-favorites" type="text" size="3" ng-blur="toggleEditing('favorites')" ng-keyup="handleEditingKey($event)" ng-model="tweet.favorites">
             </span>
           </li>
           <li class="avatar-row">
-            <a href class="link" ng-repeat="avatar in tweet.stats.favoritedBy | limitTo:tweet.stats.favorites track by $index" ng-click="refreshAvatar($index)"><img class="avatar size24" ng-src="{{avatar}}" /></a>
+            <a href class="link" ng-repeat="avatar in tweet.favoritedBy | limitTo:tweet.favorites track by $index" ng-click="refreshAvatar($index)" title="Change avatar"><img class="avatar size24" ng-src="{{avatar}}" /></a>
           </li>
         </ul>
       </div>
@@ -94,4 +69,12 @@
     </div>
   </div>
 </div>
+
+<div class="container" ng-if="!screenshot">
+  <button class="download-screenshot-button btn btn-primary" ng-click="generateScreenshot()">Download Screenshot</button>
+
+  <div ng-if="generatedScreenshotLoading" class="loader">Loading</div>
+  <img ng-if="generatedScreenshot" ng-src="{{generatedScreenshot}}" />
+</div>
+
 

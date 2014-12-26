@@ -45,55 +45,13 @@
   line-height: 18px;
 }
 .section-twitter .tweet .Icon {
-  background: transparent;
   display: inline-block;
-  font-style: normal;
-  vertical-align: baseline;
 }
-.section-twitter .tweet .Icon:before {
-  display: block;
-  font-family: "rosettaicons";
-  font-weight: normal;
-  font-style: normal;
-  text-align: center;
-  -webkit-font-smoothing: antialiased;
-}
-.section-twitter .tweet .Icon--medium {
-  font-size: 18px;
-  line-height: 18px;
-}
-.section-twitter .tweet .Icon--small {
-  font-size: 16px;
-  line-height: 15px;
+.section-twitter .tweet .Icon--cog {
+  width: 18px;
 }
 .section-twitter .tweet .Icon--verified {
-  color: #88c9f9;
-}
-.section-twitter .tweet .Icon--verified:before {
-  content: "\f099";
-}
-.section-twitter .tweet .Icon--cog:before {
-  content: "\f059";
-}
-.section-twitter .tweet .Icon--reply:before {
-  content: "\f151";
-}
-.section-twitter .tweet .Icon--retweet:before {
-  content: "\f152";
-}
-.section-twitter .tweet .Icon--favorite:before {
-  content: "\f147";
-}
-.section-twitter .tweet .Icon--dots:before {
-  content: "\f150";
-}
-.section-twitter .tweet .u-cf:before,
-.section-twitter .tweet .u-cf:after {
-  content: " ";
-  display: table;
-}
-.section-twitter .tweet .u-cf:after {
-  clear: both;
+  width: 16px;
 }
 .section-twitter .tweet .u-hiddenVisually {
   position: absolute!important;
@@ -255,26 +213,10 @@
   width: 100%;
   font-size: 26px;
 }
-.section-twitter .tweet .stream-item-footer {
-  font-size: 12px;
-  padding-top: 1px;
-}
 .section-twitter .tweet .stream-item-footer .actions {
-  margin-top: 5px;
-  margin-bottom: 2px;
-}
-.section-twitter .tweet .stream-item-footer .actions .action {
-  float: left;
-  margin-right: 31px;
-}
-.section-twitter .tweet .stream-item-footer .actions .action-button {
-  color: #ccd6dd;
-  display: inline-block;
-  font-size: 16px;
-  line-height: 1;
-  position: relative;
-  top: 4px;
-  padding: 0 2px;
+  display: block;
+  margin: 7px 0 1px;
+  width: 178px;
 }
 .section-twitter .tweet .permalink-footer .tweet-details-fixer .tweet-stats-container .stats {
   overflow: hidden;
@@ -338,4 +280,20 @@
   color: #8899a6;
   overflow: hidden;
   line-height: 24px;
+}
+.section-twitter .container {
+  padding: 1em 0;
+  text-align: center;
+}
+.section-twitter .container .download-screenshot-button {
+  display: block;
+  margin: 0 auto 1em;
+}
+.section-twitter.screenshot {
+  background: #fff;
+}
+.section-twitter.screenshot .tweet {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
 }

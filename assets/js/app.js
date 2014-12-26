@@ -30,7 +30,7 @@ angular.module('fakepost').config(function ($locationProvider, $stateProvider, $
     })
     .state('twitter', {
       abstract: true,
-      url: "/twitter",
+      url: "/twitter?screenshot",
       templateUrl: "/assets/html/twitter.html",
       controller: "TwitterCtrl"
     })
@@ -39,7 +39,7 @@ angular.module('fakepost').config(function ($locationProvider, $stateProvider, $
       controller: "TwitterHomeCtrl"
     })
     .state('twitter.create-tweet', {
-      url: "/create",
+      url: "/create?username&fullname&avatar&verified&retweets&favorites&favoritedBy&status&timestamp",
       templateUrl: "/assets/html/twitter-create-tweet.html",
       controller: "TwitterCreateTweetCtrl"
     })

@@ -2,31 +2,27 @@
 angular.module('fakepost').controller('TwitterCreateTweetCtrl', function (
   $scope, $stateParams, $http, $timeout, flash)
 {
-  var oldUsername = "fisch0920"
+  var oldUsername = $stateParams.username || "kanyewest"
 
   $scope.tweet = {
-    user: {
-      username: oldUsername,
-      fullname: "Travis Fischer",
-      avatar: "https://pbs.twimg.com/profile_images/547714403684986880/apxt8hY7_bigger.png",
-      verified: true
-    },
-    stats: {
-      retweets: 5,
-      favorites: 7,
-      favoritedBy: []
-    },
-    status: "Create your own fake tweets! www.fakepost.com",
-    timestamp: moment().format('h:mm A - DD MMM YYYY')
+    username: oldUsername,
+    fullname: $stateParams.fullname || "KANYE WEST",
+    avatar: $stateParams.avatar || "http://pbs.twimg.com/profile_images/1132696610/securedownload_reasonably_small.jpeg",
+    verified: ($stateParams.verified !== undefined ? $stateParams.verified === 'true' : true),
+    retweets: ($stateParams.retweets !== undefined ? $stateParams.retweets | 0 : 5),
+    favorites: ($stateParams.favorites !== undefined ? $stateParams.favorites | 0 : 7),
+    favoritedBy: [],
+    status: $stateParams.status || "Create your own fake tweets! www.fakepost.com",
+    timestamp: $stateParams.timestamp || moment().format('h:mm A - DD MMM YYYY')
   }
 
   for (var i = 0; i < 10; ++i) {
-    $scope.tweet.stats.favoritedBy.push(faker.image.avatar())
+    $scope.tweet.favoritedBy.push(faker.image.avatar())
   }
 
   $scope.refreshAvatar = function (index) {
     $scope.safeApply(function () {
-      $scope.tweet.stats.favoritedBy[index] = faker.image.avatar()
+      $scope.tweet.favoritedBy[index] = faker.image.avatar()
     })
   }
 
@@ -69,7 +65,7 @@ angular.module('fakepost').controller('TwitterCreateTweetCtrl', function (
   }
 
   function onUsernameChange () {
-    var username = $scope.tweet.user.username.toLowerCase()
+    var username = $scope.tweet.username.toLowerCase()
     if (username === oldUsername) return
 
     $scope.safeApply(function () {
@@ -84,18 +80,53 @@ angular.module('fakepost').controller('TwitterCreateTweetCtrl', function (
 
         $scope.safeApply(function () {
           $scope.editing.user = false
-          $scope.tweet.user.fullname = user.name
-          $scope.tweet.user.avatar   = user.profile_image_url
-          $scope.tweet.user.verified = !!user.verified
+          $scope.tweet.fullname = user.name
+          $scope.tweet.avatar   = user.profile_image_url
+          $scope.tweet.verified = !!user.verified
         })
       }, function (err) {
         console.error("error changing username", username, err)
         flash.error = "Twitter user @" + username + " not found."
         $scope.safeApply(function () {
           $scope.editing.user = false
-          $scope.tweet.user.username = oldUsername
+          $scope.tweet.username = oldUsername
         })
       })
+  }
+
+  if (!$scope.screenshot) {
+    $scope.generatedScreenshot = null
+
+    $scope.generateScreenshot = function () {
+      var params = {
+        network: 'twitter',
+        width: 560,
+        height: $('.tweet').outerHeight(),
+        params: $.extend(true, {}, $scope.tweet)
+      }
+
+      delete params.params.favoritedBy
+
+      $scope.safeApply(function () {
+        $scope.generatedScreenshotLoading = true
+        $scope.generatedScreenshot = null
+      })
+
+      $http.post("/api/screenshot", params)
+        .then(function (response) {
+          $scope.safeApply(function () {
+            $scope.generatedScreenshotLoading = false
+            $scope.generatedScreenshot = response.data
+          })
+        }, function (err) {
+          console.error("error generating screenshot", params, err)
+          flash.error = "failed to generate screenshot."
+
+          $scope.safeApply(function () {
+            $scope.generatedScreenshotLoading = false
+          })
+        })
+    }
   }
 });
 

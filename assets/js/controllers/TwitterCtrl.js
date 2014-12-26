@@ -1,7 +1,7 @@
 
 angular.module('fakepost').controller('TwitterCtrl', function (
-  $scope, $stateParams, $http, flash)
+  $scope, $stateParams)
 {
-  // TODO
+  $scope.screenshot = !!$stateParams.screenshot
 });
 
