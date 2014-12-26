@@ -5,9 +5,14 @@ var path        = require('path')
 var fs          = require('fs')
 var Q           = require('q')
 
-var Uploader    = require('s3-upload-stream').Uploader
+var AWS         = require('aws-sdk')
+var s3Stream    = require('s3-upload-stream')(new AWS.S3())
 
 module.exports = function (app) {
+  AWS.config.update({
+    region: process.env.AWS_S3_REGION
+  })
+
   // use phantomjs to take a screenshot of a fake social network post
   app.post('/api/screenshot', function (req, res) {
     var network = req.body.network
@@ -26,20 +31,10 @@ module.exports = function (app) {
         },
         streamType: 'png'
       }, function (err, renderStream) {
-        /*var bufs = []
-        function data (buf) {
-          bufs.push(buf)
-        }
-
-        function end () {
-          res.status(200).send(bufferToDataURL(Buffer.concat(bufs), 'image/png')).end()
-        }*/
-
         if (err) {
           res.status(500).send(err).end()
         } else {
-          //renderStream.pipe(through(data, end))
-          uploadImageStreamToS3(renderStream, process.env.AWS_S3_BUCKET, generateS3Key('png'))
+          uploadImageStreamToS3(renderStream, generateS3Key('png'))
             .then(function (url) {
               res.status(200).send(url).end()
             }, function (err) {
@@ -52,10 +47,6 @@ module.exports = function (app) {
     }
   })
 
-  function bufferToDataURL (buffer, type) {
-    return 'data:' + type + ';base64,' + buffer.toString('base64')
-  }
-
   function generateS3Key (extension) {
     var id = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
       var r = Math.random() * 16 | 0
@@ -67,33 +58,24 @@ module.exports = function (app) {
     return Date.now() + id + '.' + extension
   }
 
-  function uploadImageStreamToS3 (stream, bucket, key) {
+  function uploadImageStreamToS3 (stream, key) {
     var s3UploadD = Q.defer()
 
-    var base = "https://s3.amazonaws.com/" + bucket + "/"
+    var base = "https://s3.amazonaws.com/" + process.env.AWS_S3_BUCKET + "/"
     var url  = base + key
+    console.log(url)
 
-    new Uploader({
-      accessKeyId: process.env.AWS_S3_KEY,
-      secretAccessKey: process.env.AWS_S3_SECRET,
-      region: process.env.AWS_S3_REGION
-    }, {
-      Bucket: bucket,
+    var upload = s3Stream.upload({
+      Bucket: process.env.AWS_S3_BUCKET,
       Key: key,
-      ContentType: 'image/png',
-      ACL: 'public-read'
-    }, function (err, uploadStream) {
-      if (err) {
-        console.error(err, uploadStream)
-        s3UploadD.reject(err)
-      } else {
-        uploadStream.on('uploaded', function () {
-          s3UploadD.fulfill(url)
-        })
+      ACL: 'public-read',
+      StorageClass: 'REDUCED_REDUNDANCY',
+      ContentType: 'image/png'
+    })
 
-        console.log("uploading...")
-        stream.pipe(uploadStream)
-      }
+    stream.pipe(upload)
+    upload.on('uploaded', function () {
+      s3UploadD.fulfill(url)
     })
 
     return s3UploadD.promise
