@@ -9,8 +9,8 @@ angular.module('fakepost').controller('TwitterCreateTweetCtrl', function (
     fullname: $stateParams.fullname || "KANYE WEST",
     avatar: $stateParams.avatar || "http://pbs.twimg.com/profile_images/1132696610/securedownload_reasonably_small.jpeg",
     verified: ($stateParams.verified !== undefined ? $stateParams.verified === 'true' : true),
-    retweets: ($stateParams.retweets !== undefined ? $stateParams.retweets | 0 : 5),
-    favorites: ($stateParams.favorites !== undefined ? $stateParams.favorites | 0 : 7),
+    retweets: ($stateParams.retweets !== undefined ? $stateParams.retweets : "5"),
+    favorites: ($stateParams.favorites !== undefined ? $stateParams.favorites : "7"),
     favoritedBy: [],
     status: $stateParams.status || "Create your own fake tweets! www.fakepost.com",
     timestamp: $stateParams.timestamp || moment().format('h:mm A - DD MMM YYYY')
