@@ -212,6 +212,7 @@
 .section-twitter .tweet textarea.tweet-text {
   width: 100%;
   font-size: 26px;
+  resize: none;
 }
 .section-twitter .tweet .stream-item-footer .actions {
   display: block;
