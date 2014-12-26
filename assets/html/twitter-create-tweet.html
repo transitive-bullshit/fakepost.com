@@ -1,6 +1,4 @@
 
-<p>Twitter Create Tweet</p>
-
 <div class="tweet tweet-preview">
   <div class="content clearfix">
     <div class="permalink-header">
@@ -18,19 +16,21 @@
         </div>
       </div>
 
-      <a class="account-group">
+      <a class="account-group editable" ng-click="toggleEditing('username')">
         <img class="avatar" ng-src="{{tweet.user.avatar}}" />
         <strong class="fullname">{{tweet.user.fullname}}<span ng-if="tweet.user.verified" class="Icon Icon--small Icon--verified"></span><span>&rlm;</span></strong>
-        <span class="username">
+        <span ng-if="!editing.username" class="username">
           <s>@</s>
           <b>{{tweet.user.username}}</b>
         </span>
+
+        <input ng-if="editing.username" class="username editing-username" type="text" size="14" ng-blur="toggleEditing('username')" ng-keyup="handleEditingKey($event, 'username')" ng-model="tweet.user.username">
       </a>
     </div>
   </div>
 
-  <p ng-if="!editing.status" class="tweet-text" ng-click="toggleEditing('status')">{{tweet.status}}</p>
-  <textarea ng-if="editing.status" class="tweet-text" maxlength="140" rows="2" ng-blur="toggleEditing('status')" ng-model="tweet.status"></textarea>
+  <p ng-if="!editing.status" class="tweet-text editable" ng-click="toggleEditing('status')">{{tweet.status}}</p>
+  <textarea ng-if="editing.status" class="tweet-text editing-status" maxlength="140" rows="2" ng-blur="toggleEditing('status')" ng-keyup="handleEditingKey($event)" ng-model="tweet.status"></textarea>
 
   <div class="stream-item-footer">
     <div role="group" class="actions u-cf">
@@ -68,27 +68,28 @@
       <div class="tweet-stats-container">
         <ul class="stats">
           <li class="stat-count">
-            <a href role="button">
+            <span class="link editable" ng-click="toggleEditing('retweets')">
               Retweets
-              <strong ng-if="!editing.retweets" class="count" ng-click="toggleEditing('retweets')">{{tweet.stats.retweets}}</strong>
-              <input ng-if="editing.retweets" class="count" type="text" size="3" ng-blur="toggleEditing('retweets')" ng-model="tweet.stats.retweets">
-            </a>
+              <strong ng-if="!editing.retweets" class="count">{{tweet.stats.retweets}}</strong>
+              <input ng-if="editing.retweets" class="count editing-retweets" type="text" size="3" ng-blur="toggleEditing('retweets')" ng-keyup="handleEditingKey($event)" ng-model="tweet.stats.retweets">
+            </span>
           </li>
           <li class="stat-count">
-            <a href role="button">
+            <span class="link editable" ng-click="toggleEditing('favorites')">
               Favorites
-              <strong ng-if="!editing.favorites" class="count" ng-click="toggleEditing('favorites')">{{tweet.stats.favorites}}</strong>
-              <input ng-if="editing.favorites" class="count" type="text" size="3" ng-blur="toggleEditing('favorites')" ng-model="tweet.stats.favorites">
-            </a>
+              <strong ng-if="!editing.favorites" class="count">{{tweet.stats.favorites}}</strong>
+              <input ng-if="editing.favorites" class="count editing-favorites" type="text" size="3" ng-blur="toggleEditing('favorites')" ng-keyup="handleEditingKey($event)" ng-model="tweet.stats.favorites">
+            </span>
           </li>
           <li class="avatar-row">
-            <a href ng-repeat="avatar in tweet.stats.favoritedBy | limitTo:tweet.stats.favorites" ng-click="refreshAvatar($index)"><img class="avatar size24" ng-src="{{avatar}}" /></a>
+            <a href class="link" ng-repeat="avatar in tweet.stats.favoritedBy | limitTo:tweet.stats.favorites track by $index" ng-click="refreshAvatar($index)"><img class="avatar size24" ng-src="{{avatar}}" /></a>
           </li>
         </ul>
       </div>
 
       <div class="client-and-actions">
-        <span class="metadata">{{tweet.timestamp}}</span>
+        <span ng-if="!editing.timestamp" class="metadata editable" ng-click="toggleEditing('timestamp')">{{tweet.timestamp}}</span>
+        <input ng-if="editing.timestamp" class="count editing-timestamp" type="text" size="24" ng-blur="toggleEditing('timestamp')" ng-keyup="handleEditingKey($event)" ng-model="tweet.timestamp">
       </div>
     </div>
   </div>

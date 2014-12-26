@@ -1,0 +1,365 @@
+/*! twitter.less
+ * 
+ * NOTE: the css version of this file is auto-generated, so only edit the original 
+ * less version if you don't want your changes to be overwritten.
+ */
+
+@import "elements.less";
+
+.section-twitter {
+  background: #322a21;
+
+  .editable {
+    background-color: #fff;
+
+    &:hover {
+      background-color: #f3ff6d;
+      cursor: text;
+    }
+  }
+
+  .tweet {
+    width: 560px;
+    max-width: 100%;
+    background: #fff;
+    padding: 30px 40px 27px;
+    border-bottom: 0;
+    min-height: 51px;
+    margin: 0 auto;
+    .rounded(5px);
+
+    color: #292f33;
+    font-size: 14px;
+    line-height: 18px;
+
+    .Icon {
+      background: transparent;
+      display: inline-block;
+      font-style: normal;
+      vertical-align: baseline;
+
+      &:before {
+        display: block;
+        font-family: "rosettaicons";
+        font-weight: normal;
+        font-style: normal;
+        text-align: center;
+        -webkit-font-smoothing: antialiased;
+      }
+    }
+
+    .Icon--medium {
+      font-size: 18px;
+      line-height: 18px;
+    }
+
+    .Icon--small {
+      font-size: 16px;
+      line-height: 15px;
+    }
+
+    .Icon--verified {
+      color: #88c9f9;
+    }
+
+    .Icon--verified:before { content: "\f099"; }
+    .Icon--cog:before { content: "\f059"; }
+    .Icon--reply:before { content: "\f151"; }
+    .Icon--retweet:before { content: "\f152"; }
+    .Icon--favorite:before { content: "\f147"; }
+    .Icon--dots:before { content: "\f150"; }
+
+    .u-cf {
+      &:before, &:after {
+        content: " ";
+        display: table;
+      }
+
+      &:after {
+        clear: both;
+      }
+    }
+
+    .u-hiddenVisually {
+      position: absolute!important;
+      overflow: hidden!important;
+      width: 1px!important;
+      height: 1px!important;
+      padding: 0!important;
+      border: 0!important;
+      clip: rect(1px,1px,1px,1px)!important;
+    }
+
+    button {
+      background: transparent;
+      border: 0;
+      overflow: visible;
+      text-transform: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+
+      &:hover, &:active {
+        color: #78CAF0 !important;
+        outline: none;
+        cursor: default;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .btn {
+      font-size: 14px;
+    }
+
+    ol, ul {
+      margin: 0;
+      list-style: none;
+      padding: 0;
+    }
+
+    img {
+      border: 0;
+    }
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 5px;
+      -moz-force-broken-image-icon: 1;
+    }
+
+    .size24 {
+      width: 24px;
+      height: 24px;
+      border-radius: 3px;
+    }
+
+    .content {
+      margin-left: 58px;
+
+      .permalink-header {
+        height: 48px;
+        margin-bottom: 15px;
+
+        .follow-bar {
+          float: right;
+
+          .user-actions {
+            position: relative;
+
+            .dropdown {
+              position: relative;
+              display: inline-block;
+
+              .user-dropdown {
+                position: relative;
+                height: 35px;
+                padding: 0 0 0 5px;
+                color: #66757f;
+                display: inline-block;
+                font-weight: bold;
+
+                .user-dropdown-icon {
+                  margin: 0 8px 0 3px;
+                }
+              }
+            }
+
+            .user-actions-follow-button {
+              padding: 4px 12px 9px 12px;
+              vertical-align: top;
+              color: #fff;
+              background-color: #55acee;
+              background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.05));
+              -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000000, endColorstr=#0C000000)";
+              border: 1px solid #3b88c3;
+              box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
+            }
+
+            .follow-button {
+              .button-text {
+                display: block;
+                color: #fff;
+                padding: 0;
+                min-width: 73px;
+                text-align: center;
+                padding-top: 5px;
+              }
+            }
+          }
+        }
+
+        .account-group {
+          float: left;
+
+          .avatar {
+            float: left;
+            margin-left: -58px;
+            margin-top: 0;
+          }
+
+          .fullname {
+            display: block;
+            padding-top: 2px;
+            margin-top: 3px;
+            font-size: 18px;
+            line-height: 1.25;
+            font-weight: bold;
+            color: #292f33;
+          }
+
+          .Icon--verified {
+            position: relative;
+            margin-left: 3px;
+          }
+
+          .username {
+            font-size: 14px;
+            direction: ltr;
+            unicode-bidi: embed;
+            color: #8899a6;
+
+            s {
+              color: #b1bbc3;
+            }
+
+            b {
+              font-weight: normal;
+            }
+          }
+        }
+      }
+    }
+
+    .tweet-text {
+      white-space: pre-wrap;
+      font-size: 28px;
+      line-height: 34px;
+      font-weight: 300;
+      letter-spacing: .01em;
+      word-wrap: break-word;
+      letter-spacing: .01em;
+      -webkit-margin-before: 1em;
+      -webkit-margin-after: 1em;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+      margin: 0;
+    }
+    
+    textarea.tweet-text {
+      width: 100%;
+      font-size: 26px;
+    }
+
+    .stream-item-footer {
+      font-size: 12px;
+      padding-top: 1px;
+
+      .actions {
+        margin-top: 5px;
+        margin-bottom: 2px;
+
+        .action {
+          float: left;
+          margin-right: 31px;
+        }
+
+        .action-button {
+          color: #ccd6dd;
+          display: inline-block;
+          font-size: 16px;
+          line-height: 1;
+          position: relative;
+          top: 4px;
+          padding: 0 2px;
+        }
+      }
+    }
+
+    .permalink-footer {
+      .tweet-details-fixer {
+        .tweet-stats-container {
+          .stats {
+            overflow: hidden;
+            margin-top: 10px;
+            border-bottom: 1px solid #e1e8ed;
+            border-top: 1px solid #e1e8ed;
+
+            .link {
+              float: left;
+              padding: 7px 28px 0 0;
+              color: #8899a6;
+              font-size: 10px;
+              line-height: 16px;
+              text-transform: uppercase;
+              padding-top: 4px;
+              width: auto;
+            }
+
+            .stat-count {
+              margin-right: 10px;
+              overflow: hidden;
+              min-width: 72px;
+
+              &:first-child {
+                padding-left: 0;
+                border-left: 0;
+              }
+
+              .link {
+                display: block;
+                padding-right: 0;
+              }
+
+              .count {
+                display: block;
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 20px;
+                color: #78CAF0;
+              }
+            }
+
+            li {
+              display: block;
+              float: left;
+              overflow: hidden;
+            }
+
+            .avatar-row {
+              a {
+                padding: 11px 0;
+                width: auto;
+
+                &:first-child {
+                  padding-left: 12px;
+                  border-left: 1px solid #e1e8ed;
+                }
+              }
+
+              .avatar {
+                float: left;
+                margin-right: 5px;
+              }
+            }
+          }
+        }
+
+        .client-and-actions {
+          clear: both;
+          margin-top: 10px;
+
+          .metadata {
+            font-size: 13px;
+            color: #8899a6;
+            overflow: hidden;
+            line-height: 24px;
+          }
+        }
+      }
+    }
+  }
+}
+

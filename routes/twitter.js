@@ -12,9 +12,9 @@ module.exports = function (app) {
     res.status(500).send('TODO').end()
   })
 
-  app.get('/api/twitter/users/lookup/:screen_names', function (req, res) {
-    client.get('users/lookup', {
-      screen_names: req.param.screen_names
+  app.get('/api/twitter/users/show/:username', function (req, res) {
+    client.get('/users/show', {
+      'screen_name': req.params.username
     }, function (err, result) {
       if (err) {
         res.status(404).send(err).end()

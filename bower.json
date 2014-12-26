@@ -16,6 +16,7 @@
     "font-awesome": "~4.1.0",
     "twemoji": "~1.2.0",
     "normalize.css": "~3.0.2",
-    "Faker": "~2.1.1"
+    "Faker": "~2.1.1",
+    "moment": "~2.8.4"
   }
 }

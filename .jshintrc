@@ -17,6 +17,7 @@
     "ga", 
     "angular",
     "IS_MOBILE",
-    "faker"
+    "faker",
+    "moment"
   ]
 }
