@@ -13,6 +13,9 @@ Node-Express backend hosted on Heroku with an AngularJS frontend.
 ### TODO
 
 * share page with likes and views
+  * likes, views
+  * view more fake tweets by @username
+  * create your own fake tweet by @username
 * home page with top and recent content
 * twitter home page with top and recent content
 * facebook
