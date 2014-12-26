@@ -29,7 +29,8 @@
     </div>
   </div>
 
-  <p class="tweet-text">{{tweet.status}}</p>
+  <p ng-if="!editing.status" class="tweet-text" ng-click="toggleEditing('status')">{{tweet.status}}</p>
+  <textarea ng-if="editing.status" class="tweet-text" maxlength="140" rows="2" ng-blur="toggleEditing('status')" ng-model="tweet.status"></textarea>
 
   <div class="stream-item-footer">
     <div role="group" class="actions u-cf">
@@ -69,17 +70,19 @@
           <li class="stat-count">
             <a href role="button">
               Retweets
-              <strong>{{tweet.stats.retweets}}</strong>
+              <strong ng-if="!editing.retweets" class="count" ng-click="toggleEditing('retweets')">{{tweet.stats.retweets}}</strong>
+              <input ng-if="editing.retweets" class="count" type="text" size="3" ng-blur="toggleEditing('retweets')" ng-model="tweet.stats.retweets">
             </a>
           </li>
           <li class="stat-count">
             <a href role="button">
               Favorites
-              <strong>{{tweet.stats.favorites}}</strong>
+              <strong ng-if="!editing.favorites" class="count" ng-click="toggleEditing('favorites')">{{tweet.stats.favorites}}</strong>
+              <input ng-if="editing.favorites" class="count" type="text" size="3" ng-blur="toggleEditing('favorites')" ng-model="tweet.stats.favorites">
             </a>
           </li>
           <li class="avatar-row">
-            <a href ng-repeat="avatar in tweet.stats.favoritedBy | limitTo:tweet.stats.favorites"><img class="avatar size24" ng-src="{{avatar}}" /></a>
+            <a href ng-repeat="avatar in tweet.stats.favoritedBy | limitTo:tweet.stats.favorites" ng-click="refreshAvatar($index)"><img class="avatar size24" ng-src="{{avatar}}" /></a>
           </li>
         </ul>
       </div>

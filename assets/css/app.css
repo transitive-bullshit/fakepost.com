@@ -306,6 +306,10 @@ a:active {
   -webkit-margin-end: 0px;
   margin: 0;
 }
+.section-twitter .tweet textarea.tweet-text {
+  width: 100%;
+  font-size: 26px;
+}
 .section-twitter .tweet .stream-item-footer {
   font-size: 12px;
   padding-top: 1px;
@@ -356,7 +360,7 @@ a:active {
   display: block;
   padding-right: 0;
 }
-.section-twitter .tweet .permalink-footer .tweet-details-fixer .tweet-stats-container .stats .stat-count strong {
+.section-twitter .tweet .permalink-footer .tweet-details-fixer .tweet-stats-container .stats .stat-count .count {
   display: block;
   font-size: 18px;
   font-weight: 500;
