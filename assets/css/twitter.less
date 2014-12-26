@@ -192,12 +192,27 @@
         }
 
         .account-group {
+          position: relative;
           float: left;
 
           .avatar {
             float: left;
             margin-left: -58px;
             margin-top: 0;
+          }
+
+          .loading-user {
+            position: absolute;
+            top: 0;
+            left: -58px;
+            width: 48px;
+            height: 48px;
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.7);
+            font-size: 24px;
+            line-height: 48px;
+            text-align: center;
+            color: #fff;
           }
 
           .fullname {

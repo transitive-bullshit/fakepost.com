@@ -31,6 +31,7 @@ angular.module('fakepost').controller('TwitterCreateTweetCtrl', function (
   }
 
   $scope.editing = {
+    user: false,
     username: false,
     status: false,
     retweets: false,
@@ -71,6 +72,10 @@ angular.module('fakepost').controller('TwitterCreateTweetCtrl', function (
     var username = $scope.tweet.user.username.toLowerCase()
     if (username === oldUsername) return
 
+    $scope.safeApply(function () {
+      $scope.editing.user = true
+    })
+
     $http.get("/api/twitter/users/show/" + username)
       .then(function (response) {
         var user = response.data
@@ -78,6 +83,7 @@ angular.module('fakepost').controller('TwitterCreateTweetCtrl', function (
         console.log('user', user)
 
         $scope.safeApply(function () {
+          $scope.editing.user = false
           $scope.tweet.user.fullname = user.name
           $scope.tweet.user.avatar   = user.profile_image_url
           $scope.tweet.user.verified = !!user.verified
@@ -86,6 +92,7 @@ angular.module('fakepost').controller('TwitterCreateTweetCtrl', function (
         console.error("error changing username", username, err)
         flash.error = "Twitter user @" + username + " not found."
         $scope.safeApply(function () {
+          $scope.editing.user = false
           $scope.tweet.user.username = oldUsername
         })
       })

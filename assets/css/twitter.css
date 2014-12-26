@@ -192,12 +192,26 @@
   padding-top: 5px;
 }
 .section-twitter .tweet .content .permalink-header .account-group {
+  position: relative;
   float: left;
 }
 .section-twitter .tweet .content .permalink-header .account-group .avatar {
   float: left;
   margin-left: -58px;
   margin-top: 0;
+}
+.section-twitter .tweet .content .permalink-header .account-group .loading-user {
+  position: absolute;
+  top: 0;
+  left: -58px;
+  width: 48px;
+  height: 48px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.7);
+  font-size: 24px;
+  line-height: 48px;
+  text-align: center;
+  color: #fff;
 }
 .section-twitter .tweet .content .permalink-header .account-group .fullname {
   display: block;

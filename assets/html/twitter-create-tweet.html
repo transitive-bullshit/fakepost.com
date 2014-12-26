@@ -18,13 +18,13 @@
 
       <a class="account-group editable" ng-click="toggleEditing('username')">
         <img class="avatar" ng-src="{{tweet.user.avatar}}" />
+        <div class="loading-user" ng-if="editing.user"><span class="fa fa-spin fa-refresh"></span></div>
         <strong class="fullname">{{tweet.user.fullname}}<span ng-if="tweet.user.verified" class="Icon Icon--small Icon--verified"></span><span>&rlm;</span></strong>
-        <span ng-if="!editing.username" class="username">
+        <span class="username">
           <s>@</s>
-          <b>{{tweet.user.username}}</b>
+          <b ng-if="!editing.username">{{tweet.user.username}}</b>
+          <input ng-if="editing.username" class="username editing-username" type="text" size="14" ng-blur="toggleEditing('username')" ng-keyup="handleEditingKey($event, 'username')" ng-model="tweet.user.username">
         </span>
-
-        <input ng-if="editing.username" class="username editing-username" type="text" size="14" ng-blur="toggleEditing('username')" ng-keyup="handleEditingKey($event, 'username')" ng-model="tweet.user.username">
       </a>
     </div>
   </div>
