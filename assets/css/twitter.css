@@ -183,6 +183,7 @@
 .section-twitter .tweet .content .permalink-header .account-group .Icon--verified {
   position: relative;
   margin-left: 3px;
+  top: -3px;
 }
 .section-twitter .tweet .content .permalink-header .account-group .username {
   font-size: 14px;
