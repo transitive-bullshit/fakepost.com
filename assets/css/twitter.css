@@ -20,6 +20,10 @@
   user-select: none;
 }
 .section-twitter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: #322a21;
 }
 .section-twitter .editable {
@@ -286,10 +290,15 @@
 .section-twitter .container {
   padding: 1em 0;
   text-align: center;
+  color: #fff;
 }
 .section-twitter .container .download-screenshot-button {
   display: block;
   margin: 0 auto 1em;
+}
+.section-twitter .view-tweet #disqus_thread {
+  max-width: 900px;
+  margin: 4em auto 0;
 }
 .section-twitter.screenshot {
   background: #fff;

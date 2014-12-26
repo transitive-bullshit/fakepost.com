@@ -1,6 +1,8 @@
 
-<div class="container">
+<div class="container view-tweet">
   <div ng-if="loading" class="loader">Loading</div>
-  <img ng-if="!loading && tweet" ng-src="{{tweet.image}}" />
+  <img ng-if="!loading && tweet" class="screenshot" ng-src="{{tweet.image}}" />
+
+  <dir-disqus disqus-shortname="fakepost" disqus-identifier="{{tweetID}}" disqus-url="{{ url }}" disqus-category-id="3427043" ready-to-bind="{{!loading}}"></dir-disqus>
 </div>
 

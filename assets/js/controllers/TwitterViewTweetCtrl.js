@@ -2,6 +2,8 @@
 angular.module('fakepost').controller('TwitterViewTweetCtrl', function (
   $scope, $state, $stateParams, $http, $timeout, flash)
 {
+  $scope.tweetID = $stateParams.id
+
   if ($stateParams.tweet) {
     $scope.loading = false
     $scope.tweet = $stateParams.tweet
