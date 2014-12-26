@@ -57,7 +57,7 @@
             </span>
           </li>
           <li class="avatar-row">
-            <a href class="link" ng-repeat="avatar in tweet.favoritedBy | limitTo:parseInt(tweet.favorites) track by $index" ng-click="refreshAvatar($index)" title="Change avatar"><img class="avatar size24" ng-src="{{avatar}}" /></a>
+            <a href class="link" ng-repeat="avatar in tweet.favoritedBy | limitTo:tweet.favorites track by $index" ng-click="refreshAvatar($index)" title="Change avatar"><img class="avatar size24" ng-src="{{avatar}}" /></a>
           </li>
         </ul>
       </div>
