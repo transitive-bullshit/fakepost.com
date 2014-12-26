@@ -3,8 +3,8 @@ var Twitter = require('twitter')
 
 module.exports = function (app) {
   var client = new Twitter({
-    'consumer_key': 'mEEbF3HaFoyIFS581PZHqDmRX',
-    'consumer_secret': 'dqDdsaeT1whAQ10NSK8EK2AAK697dGWcppyIcwdzQcyxWb9DXn'
+    'consumer_key': process.env.TWITTER_KEY,
+    'consumer_secret': process.env.TWITTER_SECRET
   })
 
   app.get('/api/twitter/post/:id', function (req, res) {

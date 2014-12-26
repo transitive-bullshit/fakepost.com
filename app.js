@@ -11,8 +11,7 @@ var utils        = require('./lib/utils')
 var path         = require('path')
 var app          = express()
 
-var MONGODB_DEV = "mongodb://t:burnfisch@dogen.mongohq.com:10043/fakepost"
-mongoose.connect(process.env.MONGODB || MONGODB_DEV)
+mongoose.connect(process.env.MONGODB)
 
 app.set('port', process.env.PORT || 5000)
 

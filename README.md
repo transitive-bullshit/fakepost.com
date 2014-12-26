@@ -12,7 +12,8 @@ Node-Express backend hosted on Heroku with an AngularJS frontend.
 
 ### TODO
 
-* remove twitter config variables from repo
+* remove config variables from repo
+  * twitter, mongo, AWS
 
 ### License
 
