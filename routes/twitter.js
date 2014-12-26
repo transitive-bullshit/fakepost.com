@@ -1,5 +1,7 @@
 
-var Twitter = require('twitter')
+var Twitter   = require('twitter')
+var models    = require('../lib/models')
+var FakeTweet = models.FakeTweet
 
 module.exports = function (app) {
   var client = new Twitter({
@@ -7,9 +9,14 @@ module.exports = function (app) {
     'consumer_secret': process.env.TWITTER_SECRET
   })
 
-  app.get('/api/twitter/post/:id', function (req, res) {
-    // TODO
-    res.status(500).send('TODO').end()
+  app.get('/api/twitter/tweet/:id', function (req, res) {
+    FakeTweet.findById(req.params.id, function (err, doc) {
+      if (err) {
+        res.status(500).send(err).end()
+      } else {
+        res.status(200).json(doc).end()
+      }
+    })
   })
 
   app.get('/api/twitter/users/show/:username', function (req, res) {

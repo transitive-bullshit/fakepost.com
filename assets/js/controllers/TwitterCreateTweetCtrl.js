@@ -1,6 +1,6 @@
 
 angular.module('fakepost').controller('TwitterCreateTweetCtrl', function (
-  $scope, $stateParams, $http, $timeout, flash)
+  $scope, $state, $stateParams, $http, $timeout, flash)
 {
   var oldUsername = $stateParams.username || "kanyewest"
 
@@ -114,9 +114,15 @@ angular.module('fakepost').controller('TwitterCreateTweetCtrl', function (
 
       $http.post("/api/screenshot", params)
         .then(function (response) {
+          console.log(response.data)
+
           $scope.safeApply(function () {
             $scope.generatedScreenshotLoading = false
-            $scope.generatedScreenshot = response.data
+          })
+
+          $state.go('twitter.view-tweet', {
+            id: response.data._id,
+            tweet: response.data
           })
         }, function (err) {
           console.error("error generating screenshot", params, err)

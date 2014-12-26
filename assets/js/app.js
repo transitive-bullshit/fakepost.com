@@ -43,6 +43,16 @@ angular.module('fakepost').config(function ($locationProvider, $stateProvider, $
       templateUrl: "/assets/html/twitter-create-tweet.html",
       controller: "TwitterCreateTweetCtrl"
     })
+    .state('twitter.view-tweet', {
+      url: "/tweet/:id",
+      templateUrl: "/assets/html/twitter-view-tweet.html",
+      controller: "TwitterViewTweetCtrl",
+      params: {
+        screenshot: { },
+        id: { },
+        tweet: { }
+      }
+    })
 
   $locationProvider.html5Mode(true)
 })
