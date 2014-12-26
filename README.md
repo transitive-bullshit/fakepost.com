@@ -12,8 +12,11 @@ Node-Express backend hosted on Heroku with an AngularJS frontend.
 
 ### TODO
 
-* remove config variables from repo
-  * twitter, mongo, AWS
+* share page with likes and views
+* home page with top and recent content
+* twitter home page with top and recent content
+* facebook
+* instagram
 
 ### License
 
