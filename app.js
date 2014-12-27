@@ -43,6 +43,8 @@ if (utils.isProd()) {
   app.use(logger('dev'))
 }
 
+app.use(require('prerender-node').set('prerenderServiceUrl', process.env.PRERENDER_SERVICE_URL));
+
 require('./routes/twitter')(app)
 require('./routes/screenshot')(app)
 require('./routes/views')(app)
