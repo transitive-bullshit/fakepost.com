@@ -23,7 +23,7 @@ Node-Express backend hosted on Heroku with an AngularJS frontend.
 * home page with top and recent content
 * facebook
 * instagram
-* setup prerender/prender middleware
+* TEST prerender SEO middleware
 
 ### License
 

@@ -6,16 +6,18 @@
 
 @import "elements.less";
 
-html{
+html {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: transparent;
   padding: 0;
   margin: 0;
+
+  // important for transparency in phantomjs screenshots
+  background: transparent;
 }
 
 html, body, .fit, .section {
@@ -74,3 +76,7 @@ a {
   .alert-error   { background: #c4392d; }
 }
 
+.logo {
+  width: 200px;
+  max-width: 80%;
+}

@@ -25,9 +25,9 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  background: transparent;
   padding: 0;
   margin: 0;
+  background: transparent;
 }
 html,
 body,
@@ -95,4 +95,8 @@ a:active {
 }
 .flash-container .alert-error {
   background: #c4392d;
+}
+.logo {
+  width: 200px;
+  max-width: 80%;
 }
