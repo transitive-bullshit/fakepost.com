@@ -303,3 +303,6 @@
 .section-twitter.screenshot {
   background: transparent;
 }
+.section-twitter.screenshot .header {
+  display: none;
+}

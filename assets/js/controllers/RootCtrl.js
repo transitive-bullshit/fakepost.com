@@ -52,5 +52,11 @@ angular.module('fakepost').controller('RootCtrl', function (
   $rootScope.$on('cfpLoadingBar:complete', function () {
     cancelLoadingTimeout()
   })
+
+  $rootScope.setLoading = function (isLoading) {
+    $rootScope.safeApply(function () {
+      $rootScope.globalLoading = !!isLoading
+    })
+  }
 });
 

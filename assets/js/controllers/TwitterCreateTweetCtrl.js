@@ -95,8 +95,6 @@ angular.module('fakepost').controller('TwitterCreateTweetCtrl', function (
   }
 
   if (!$scope.screenshot) {
-    $scope.generatedScreenshot = null
-
     $scope.generateScreenshot = function () {
       var params = {
         network: 'twitter',
@@ -107,18 +105,13 @@ angular.module('fakepost').controller('TwitterCreateTweetCtrl', function (
 
       delete params.params.favoritedBy
 
-      $scope.safeApply(function () {
-        $scope.generatedScreenshotLoading = true
-        $scope.generatedScreenshot = null
-      })
+      $scope.setLoading(true)
 
       $http.post("/api/screenshot", params)
         .then(function (response) {
           console.log(response.data)
 
-          $scope.safeApply(function () {
-            $scope.generatedScreenshotLoading = false
-          })
+          $scope.setLoading(false)
 
           $state.go('twitter.view-tweet', {
             id: response.data._id,
@@ -128,9 +121,7 @@ angular.module('fakepost').controller('TwitterCreateTweetCtrl', function (
           console.error("error generating screenshot", params, err)
           flash.error = "failed to generate screenshot."
 
-          $scope.safeApply(function () {
-            $scope.generatedScreenshotLoading = false
-          })
+          $scope.setLoading(false)
         })
     }
   }

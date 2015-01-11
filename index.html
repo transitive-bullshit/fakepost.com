@@ -53,6 +53,10 @@
     <!-- angular view content injected here -->
     <div id='content' class="fit" ui-view></div>
 
+    <div id='globalLoadingIndicator' ng-if="globalLoading">
+      <div class="loader">Loading</div>
+    </div>
+
     <div id="scripts">
       {{#if isMobile}}
         <script type='text/javascript'> IS_MOBILE = true </script>

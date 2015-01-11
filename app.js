@@ -1,3 +1,6 @@
+#!/usr/bin/env node
+
+require('dotenv').load()
 
 var mongoose     = require('mongoose')
 
@@ -6,6 +9,7 @@ var errorhandler = require('errorhandler')
 var exphbs       = require('express-handlebars')
 var bodyParser   = require('body-parser')
 var logger       = require('morgan')
+var compression  = require('compression')
 
 var utils        = require('./lib/utils')
 var path         = require('path')
@@ -15,6 +19,7 @@ mongoose.connect(process.env.MONGODB)
 
 app.set('port', process.env.PORT || 5000)
 
+app.use(compression())
 app.use('/assets', express.static('assets'))
 app.use('/build', express.static('dist/build'))
 
@@ -43,7 +48,7 @@ if (utils.isProd()) {
   app.use(logger('dev'))
 }
 
-app.use(require('prerender-node').set('prerenderServiceUrl', process.env.PRERENDER_SERVICE_URL));
+app.use(require('prerender-node').set('prerenderServiceUrl', process.env.PRERENDER_SERVICE_URL))
 
 require('./routes/twitter')(app)
 require('./routes/screenshot')(app)
