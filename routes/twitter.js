@@ -1,5 +1,6 @@
 
 var Twitter   = require('twitter')
+var topUsers  = require('../lib/users')
 var models    = require('../lib/models')
 var FakeTweet = models.FakeTweet
 
@@ -29,6 +30,10 @@ module.exports = function (app) {
         res.status(200).json(result).end()
       }
     })
+  })
+
+  app.get('/api/twitter/users.json', function (req, res) {
+    res.status(200).json(topUsers).end()
   })
 }
 
